@@ -4,6 +4,4 @@ export interface Smartphone {
   model: string,
   storage: number,
   isAvailable?: boolean
-
 }
-

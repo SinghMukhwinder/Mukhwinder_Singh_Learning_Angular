@@ -1,0 +1,10 @@
+<div class = "container">
+  <h2>SMART PHONES</h2>
+  <div *ngFor="let phone of ArrayList" >
+    <h3>{{phone.brand}}</h3>
+    <p>Serial Number : {{phone.serialNumber}}</p>
+    <p>Model : {{phone.model}}</p>
+    <p>Storage : {{phone.storage}}</p>
+    <p>Available : {{phone.isAvailable? 'YES' : 'NO'}}</p>
+  </div>
+</div>
