@@ -9,7 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Mukhwinder-Singh-Learning-Angular';
-  name: string = 'Mukhwinder Singh';
-  programName: string = 'Computer Programming 2 Year';
+
 }
