@@ -9,4 +9,5 @@ import {NgForOf} from "@angular/common";
   styleUrl: './smartphone-list.component.css'
 })
 export class SmartphoneListComponent {
+
 }
