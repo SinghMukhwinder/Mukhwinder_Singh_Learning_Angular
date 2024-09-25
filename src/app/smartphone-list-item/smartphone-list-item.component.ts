@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Smartphone} from "../Shared/Models/Smartphones";
 
 @Component({
   selector: 'app-smartphone-list-item',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './smartphone-list-item.component.css'
 })
 export class SmartphoneListItemComponent {
+  @Input() isAvailable?: Smartphone;
 
 }
