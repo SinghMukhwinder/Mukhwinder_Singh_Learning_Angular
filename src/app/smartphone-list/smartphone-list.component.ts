@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 import {Smartphone} from "../Shared/Models/Smartphones";
 import {SmartphoneListItemComponent} from "../smartphone-list-item/smartphone-list-item.component";
 
 @Component({
   selector: 'app-smartphone-list',
   standalone: true,
-  imports: [NgForOf, SmartphoneListItemComponent],
+  imports: [NgForOf, SmartphoneListItemComponent, NgClass],
   templateUrl: './smartphone-list.component.html',
   styleUrl: './smartphone-list.component.css'
 })
@@ -24,8 +24,4 @@ export class SmartphoneListComponent {
 
   ArrayList: Smartphone[] =
     [this.smartphone1,this.smartphone2, this.smartphone3, this.smartphone4, this.smartphone5, this.smartphone6]
-
-
-
-
 }

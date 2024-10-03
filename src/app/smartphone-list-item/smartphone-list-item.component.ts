@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Smartphone} from "../Shared/Models/Smartphones";
 
+
 @Component({
   selector: 'app-smartphone-list-item',
   standalone: true,
@@ -11,4 +12,5 @@ import {Smartphone} from "../Shared/Models/Smartphones";
 export class SmartphoneListItemComponent {
   @Input() isAvailable?: Smartphone;
 
+  
 }
