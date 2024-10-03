@@ -12,6 +12,11 @@ import {SmartphoneService} from "../Services/smartphone.service";
   styleUrl: './smartphone-list.component.css'
 })
 export class SmartphoneListComponent  {
+  displayColums:string[]=['serialNumber',
+  'brand',
+  'model',
+  'storage'];
+  smartphones:Smartphone[]=[];
 
 
 
