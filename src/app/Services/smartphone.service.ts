@@ -38,5 +38,11 @@ export class SmartphoneService {
     const smartphone = this.smartphoneList.find(smart => smart.serialNumber === readSerialNu);
     return of(smartphone);
   }
+
+  selectedSmartphone? : Smartphone;
+  selectSmartPhone(phone:Smartphone):void {
+    this.selectedSmartphone = phone;
+  }
+
 }
 

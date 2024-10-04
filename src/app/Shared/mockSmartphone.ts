@@ -9,3 +9,4 @@ export  const smartphones: Smartphone [] = [
 {serialNumber: "1234E", brand: "RealMe", model: "GT neo 3T", storage:  64, isAvailable: false}
 
 ];
+

@@ -1,10 +1,24 @@
 <div class = "container">
   <h2>SMART PHONES</h2>
-  <div *ngFor="let phone of ArrayList" >
-    <h3>{{phone.brand}}</h3>
-    <p>Serial Number : {{phone.serialNumber}}</p>
-    <p>Model : {{phone.model}}</p>
-    <p>Storage : {{phone.storage}}</p>
-    <p>Available : {{phone.isAvailable? 'YES' : 'NO'}}</p>
-  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Serial Number</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Storage</th>
+      <th>Available</th>
+    </tr>
+    </thead>
+    <tbody>
+  <tr *ngFor="let phone of smartphones" (click)="selectSmartPhone(phone)" >
+    <td>{{phone.brand}}</td>
+    <td>Serial Number : {{phone.serialNumber}}</td>
+    <td>Model : {{phone.model}}</td>
+    <td>Storage : {{phone.storage}}</td>
+    <td>Available : {{phone.isAvailable? 'YES' : 'NO'}}</td>
+  </tr>
+    </tbody>
+  </table>
+  <app-smartphone-list-item [smartphones] = "selectedSmartphone"></app-smartphone-list-item>
 </div>
