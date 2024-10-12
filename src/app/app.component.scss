@@ -26,3 +26,22 @@ h3{
   font-weight: bold;
 
 }
+
+.nav-bar {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-bar nav {
+  display: flex;
+  justify-content: center;
+
+}
+
+.nav-bar a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+}

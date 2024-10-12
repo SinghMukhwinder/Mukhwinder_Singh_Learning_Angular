@@ -1,9 +1,9 @@
-<div *ngIf="smartphones" class ="smartphone-list-item">
+<div *ngIf="smartphones" class="smartphone-list-item">
   <h2>SmartPhone List</h2>
   <p><strong>Serial Number: </strong>{{smartphones.serialNumber}}</p>
   <p><strong>Brand: </strong>{{smartphones.brand}}</p>
   <p><strong>Model: </strong>{{smartphones.model}}</p>
-  <p><strong>Storage: </strong>{{smartphones.storage}}</p>
-  <p><strong>Available: </strong>{{smartphones.isAvailable}}</p>
-
+  <p><strong>Storage: </strong>{{smartphones.storage}} GB</p>
+  <p><strong>Available: </strong>{{smartphones.isAvailable ? 'Yes' : 'No'}}</p>
 </div>
+
