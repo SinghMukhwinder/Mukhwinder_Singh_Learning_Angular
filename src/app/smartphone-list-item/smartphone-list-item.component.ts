@@ -1,8 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Smartphone} from "../Shared/Models/Smartphones";
 import {NgIf, NgOptimizedImage} from "@angular/common";
-import {ActivatedRoute} from "@angular/router";
-import {SmartphoneService} from "../Services/smartphone.service";
 
 
 @Component({
