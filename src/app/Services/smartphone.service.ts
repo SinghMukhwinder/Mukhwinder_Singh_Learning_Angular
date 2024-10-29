@@ -16,6 +16,7 @@ export class SmartphoneService {
     return of(smartphones);
   }
 
+  // Adding CRUD Method
   addSmartphone(mySmartphone:Smartphone): Observable<Smartphone[]>{
     this.smartphoneList.push(mySmartphone)
     return of(this.smartphoneList);

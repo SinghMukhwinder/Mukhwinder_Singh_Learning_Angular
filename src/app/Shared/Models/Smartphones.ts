@@ -1,4 +1,5 @@
 export interface Smartphone {
+  id: number,
   serialNumber: string,
   brand: string,
   model: string,
