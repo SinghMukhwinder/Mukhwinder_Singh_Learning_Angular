@@ -28,11 +28,12 @@ export class ModifyListItemComponent implements OnInit{
 
   )
   {
+    const noSpcialChar = "^[a-zA-Z0-9]*$"
     this.smartphoneForm = this.fb.group({
       id:[smartphoneService.generateNewId()],
       serialNumber: ['', Validators.required],
-      brand: ['', Validators.required],
-      model: [''],
+      brand: ['', Validators.required, Validators.pattern(noSpcialChar)],
+      model: ['', Validators.required, Validators.pattern(noSpcialChar)],
       storage:[''],
       isAvailable: [false],
       image: ['']
