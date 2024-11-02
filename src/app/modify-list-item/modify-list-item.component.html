@@ -1,1 +1,39 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="smartphoneForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="id">Id:</label>
+    <input type="number" id="id" formControlName="id"/>
+  </div>
+
+  <div class="form-group">
+    <label for="serialNumber">Serial Number:</label>
+    <input type="text" id="serialNumber" formControlName="serialNumber"/>
+  </div>
+
+  <div class="form-group">
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" formControlName="brand"/>
+  </div>
+
+  <div class="form-group">
+    <label for="model">Model:</label>
+    <input type="text" id="model" formControlName="model"/>
+  </div>
+
+  <div class="form-group">
+    <label for="storage">Storage:</label>
+    <input type="number" id="storage" formControlName="storage"/>
+  </div>
+
+  <div class="form-group">
+    <label for="isAvailable">Is Available:</label>
+    <input type="checkbox" id="isAvailable" formControlName="isAvailable"/>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Is Available:</label>
+    <input type="file" id="image" formControlName="Image"/>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

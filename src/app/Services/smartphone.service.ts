@@ -1,48 +1,58 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {catchError, Observable, throwError} from "rxjs";
 import {Smartphone} from "../Shared/Models/Smartphones";
 import {smartphones} from "../Shared/mockSmartphone";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SmartphoneService {
+  private apiUrl = "apiUrl/smartphones" ;
   private smartphoneList:Smartphone [] = smartphones;
 
-  constructor() { }
+  constructor(private  http: HttpClient) { }
 
 
-  getSmartphones (): Observable<Smartphone[]> {
-    return of(smartphones);
+  getSmartphones(): Observable<Smartphone[]> {
+    return this.http.get<Smartphone[]>(this.apiUrl).pipe(catchError(this.handleError));
+  }
+
+  getSmartphoneById(id: number): Observable<Smartphone>{
+    return this.http.get<Smartphone>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError));
   }
 
   // Adding CRUD Method
-  addSmartphone(mySmartphone:Smartphone): Observable<Smartphone[]>{
-    this.smartphoneList.push(mySmartphone)
-    return of(this.smartphoneList);
+  addSmartphone(smartphone :Smartphone): Observable<Smartphone>{
+    smartphone.id = this.generateNewId();
+    this.smartphoneList.push(smartphone);
+    return this.http.post<Smartphone>(this.apiUrl, smartphone).pipe(catchError(this.handleError));
+
   }
 
-  updateSmartphone(updateSmartphone:Smartphone): Observable<Smartphone[]>{
-    const  index = this.smartphoneList.findIndex(smart => smart.serialNumber === updateSmartphone.serialNumber);
-    if (index != -1){
-      this.smartphoneList[index] = updateSmartphone;
-    }
-    return  of(this.smartphoneList);
+  updateSmartphone(smartphone:Smartphone): Observable<Smartphone | undefined>{
+   const url = `${this.apiUrl}/${smartphone.id}`;
+   return this.http.put<Smartphone>(url, smartphone).pipe(catchError(this.handleError));
   }
 
-  deleteSmartphone(deleteSerialNu: string): Observable<Smartphone[]>{
-    this.smartphoneList = this.smartphoneList.filter(smart => smart.serialNumber !== deleteSerialNu);
-    return of(this.smartphoneList);
+  deleteSmartphone(id: number): Observable<{}>{
+    const url = `${this.apiUrl}/${id}`;
+   return this.http.delete(url).pipe(catchError(this.handleError));
   }
 
-  getSmartphone(readSerialNu:string): Observable<Smartphone | undefined>{
-    const smartphone = this.smartphoneList.find(smart => smart.serialNumber === readSerialNu);
-    return of(smartphone);
-  }
 
   selectedSmartphone? : Smartphone;
   selectSmartPhone(phone:Smartphone):void {
     this.selectedSmartphone = phone;
+  }
+
+  generateNewId(): number {
+    return this.smartphoneList.length > 0 ? Math.max(...this.smartphoneList.map(smartphone => smartphone.id)) + 1 :1;
+  }
+
+  private  handleError(error: HttpErrorResponse){
+    console.error('API error:', error);
+    return throwError(() => new Error('Server error, Please try again'));
   }
 
 }

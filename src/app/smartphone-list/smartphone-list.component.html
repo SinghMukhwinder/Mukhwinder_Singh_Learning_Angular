@@ -10,6 +10,8 @@
       <th>Model</th>
       <th>Storage</th>
       <th>Available</th>
+      <th>Remove</th>
+      <th>Update</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +23,8 @@
     <td>{{phone.model}}</td>
     <td>{{phone.storage}}</td>
     <td>{{phone.isAvailable? 'YES' : 'NO'}}</td>
+    <td><button type="button" (click)= "onDelete(phone.id)">Delete</button></td>
+    <td><button type="button" (click)="editSmartphone(phone.id)">Edit</button></td>
   </tr>
     </tbody>
   </table>

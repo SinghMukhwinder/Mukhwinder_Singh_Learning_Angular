@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {JsonPipe, NgForOf} from "@angular/common";
 import {SmartphoneListComponent} from "./smartphone-list/smartphone-list.component";
 import {Smartphone} from "./Shared/Models/Smartphones";
@@ -10,7 +9,7 @@ import {SmartphoneService} from "./Services/smartphone.service";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, SmartphoneListComponent, SmartphoneListItemComponent, RouterLink],
+  imports: [RouterOutlet, NgForOf, JsonPipe, SmartphoneListComponent, SmartphoneListItemComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

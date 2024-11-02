@@ -21,20 +21,30 @@ export class SmartphoneListComponent  implements OnInit{
   smartphones:Smartphone[]=[];
 
   constructor(
-    private smartphoneService: SmartphoneService) {}
+    private smartphoneService: SmartphoneService,
+    private router: Router
+
+  ) {}
   ngOnInit() {
     this.smartphoneService.getSmartphones().subscribe({
       next:(data: Smartphone[]) => this.smartphones = data,
       error:err => console.log("Error fetching Smartphones", err),
       complete: () => console.log("Smartphone data fetch complete!")
-
-    })
+    });
   }
 
 
   selectedSmartphone? : Smartphone;
   selectSmartPhone(phone:Smartphone):void {
     this.selectedSmartphone = phone;
+  }
+
+  editSmartphone(id:number): void{
+    this.router.navigate(['/modify-list-item']);
+  }
+
+  onDelete(id: number): void{
+    this.smartphoneService.deleteSmartphone(id).subscribe(() => this.ngOnInit());
   }
 
 }
