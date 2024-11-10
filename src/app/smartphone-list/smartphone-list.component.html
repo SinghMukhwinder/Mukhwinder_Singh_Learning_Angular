@@ -30,3 +30,5 @@
   </table>
   <app-smartphone-list-item [smartphones] = "selectedSmartphone"></app-smartphone-list-item>
 </div>
+<div *ngIf="error" class="error">{{ error }}</div>
+

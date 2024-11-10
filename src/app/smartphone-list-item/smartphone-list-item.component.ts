@@ -10,6 +10,8 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
   templateUrl: './smartphone-list-item.component.html',
   styleUrl: './smartphone-list-item.component.css'
 })
+
 export class SmartphoneListItemComponent {
   @Input() smartphones?: Smartphone;
+  error: string | null = null;
 }

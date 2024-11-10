@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {Smartphone} from "../Shared/Models/Smartphones";
 import {SmartphoneListItemComponent} from "../smartphone-list-item/smartphone-list-item.component";
 import {SmartphoneService} from "../Services/smartphone.service";
 import {Router, RouterLink} from "@angular/router";
 
 
+
 @Component({
   selector: 'app-smartphone-list',
   standalone: true,
-  imports: [NgForOf, SmartphoneListItemComponent, NgClass, NgOptimizedImage, RouterLink],
+  imports: [NgForOf, SmartphoneListItemComponent, NgClass, NgOptimizedImage, RouterLink, NgIf],
   templateUrl: './smartphone-list.component.html',
   styleUrl: './smartphone-list.component.css'
 })
@@ -19,6 +20,7 @@ export class SmartphoneListComponent  implements OnInit{
   'model',
   'storage'];
   smartphones:Smartphone[]=[];
+  error: string | null = null;
 
   constructor(
     private smartphoneService: SmartphoneService,
@@ -33,7 +35,6 @@ export class SmartphoneListComponent  implements OnInit{
     });
   }
 
-
   selectedSmartphone? : Smartphone;
   selectSmartPhone(phone:Smartphone):void {
     this.selectedSmartphone = phone;
@@ -46,5 +47,6 @@ export class SmartphoneListComponent  implements OnInit{
   onDelete(id: number): void{
     this.smartphoneService.deleteSmartphone(id).subscribe(() => this.ngOnInit());
   }
+
 }
 
