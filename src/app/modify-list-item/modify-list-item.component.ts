@@ -31,8 +31,8 @@ export class ModifyListItemComponent implements OnInit{
     this.smartphoneForm = this.fb.group({
       id:[smartphoneService.generateNewId()],
       serialNumber: ['', Validators.required],
-      brand: ['', Validators.required, Validators.pattern(noSpcialChar)],
-      model: ['', Validators.required, Validators.pattern(noSpcialChar)],
+      brand: ['', [Validators.required, Validators.pattern(noSpcialChar)]],
+      model: ['', [Validators.required, Validators.pattern(noSpcialChar)]],
       storage:[''],
       isAvailable: [false],
       image: ['']
