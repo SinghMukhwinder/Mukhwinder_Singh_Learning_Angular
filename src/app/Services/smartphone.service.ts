@@ -8,7 +8,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
   providedIn: 'root'
 })
 export class SmartphoneService {
-  private apiUrl = "apiUrl/smartphones" ;
+  private apiUrl = "apiUrl/smartphones" ; // url to web api
   private smartphoneList:Smartphone [] = smartphones;
 
   constructor(private  http: HttpClient) { }
@@ -18,7 +18,7 @@ export class SmartphoneService {
     return this.http.get<Smartphone[]>(this.apiUrl).pipe(catchError(this.handleError));
   }
 
-  getSmartphoneById(id: number): Observable<Smartphone>{
+  getSmartphoneById(id: number): Observable<Smartphone> {
     return this.http.get<Smartphone>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError));
   }
 
@@ -46,6 +46,7 @@ export class SmartphoneService {
     this.selectedSmartphone = phone;
   }
 
+  // New method to generate a new unique ID
   generateNewId(): number {
     return this.smartphoneList.length > 0 ? Math.max(...this.smartphoneList.map(smartphone => smartphone.id)) + 1 :1;
   }
