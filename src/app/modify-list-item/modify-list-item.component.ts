@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {SmartphoneService} from "../Services/smartphone.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {smartphones} from "../Shared/mockSmartphone";
 import {NgIf} from "@angular/common";
 import {Smartphone} from "../Shared/Models/Smartphones";
 

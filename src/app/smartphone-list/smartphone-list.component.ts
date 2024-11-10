@@ -46,6 +46,5 @@ export class SmartphoneListComponent  implements OnInit{
   onDelete(id: number): void{
     this.smartphoneService.deleteSmartphone(id).subscribe(() => this.ngOnInit());
   }
-
 }
 
