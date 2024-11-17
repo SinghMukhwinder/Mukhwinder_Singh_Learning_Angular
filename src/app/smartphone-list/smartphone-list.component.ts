@@ -5,13 +5,14 @@ import {SmartphoneListItemComponent} from "../smartphone-list-item/smartphone-li
 import {SmartphoneService} from "../Services/smartphone.service";
 import {Router, RouterLink} from "@angular/router";
 import {smartphones} from "../Shared/mockSmartphone";
+import {SmartphoneDetailsPipe} from "../pipes/smartphone-details.pipe";
 
 
 
 @Component({
   selector: 'app-smartphone-list',
   standalone: true,
-  imports: [NgForOf, SmartphoneListItemComponent, NgClass, NgOptimizedImage, RouterLink, NgIf, UpperCasePipe, CurrencyPipe, DatePipe],
+  imports: [NgForOf, SmartphoneListItemComponent, NgClass, NgOptimizedImage, RouterLink, NgIf, UpperCasePipe, CurrencyPipe, DatePipe, SmartphoneDetailsPipe],
   templateUrl: './smartphone-list.component.html',
   styleUrl: './smartphone-list.component.css'
 })
