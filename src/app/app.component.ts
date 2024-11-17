@@ -16,8 +16,9 @@ import {SmartphoneService} from "./Services/smartphone.service";
 export class AppComponent {
   displayColums:string[]=['serialNumber',
     'brand',
-    'model',
-    'storage'];
+    'storage',
+  'releaseDate',
+  'price'];
   smartphones:Smartphone[]=[];
 
   constructor(private smartphoneService: SmartphoneService) {

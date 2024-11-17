@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import {Smartphone} from "../Shared/Models/Smartphones";
 import {SmartphoneListItemComponent} from "../smartphone-list-item/smartphone-list-item.component";
 import {SmartphoneService} from "../Services/smartphone.service";
@@ -11,15 +11,16 @@ import {smartphones} from "../Shared/mockSmartphone";
 @Component({
   selector: 'app-smartphone-list',
   standalone: true,
-  imports: [NgForOf, SmartphoneListItemComponent, NgClass, NgOptimizedImage, RouterLink, NgIf],
+  imports: [NgForOf, SmartphoneListItemComponent, NgClass, NgOptimizedImage, RouterLink, NgIf, UpperCasePipe, CurrencyPipe, DatePipe],
   templateUrl: './smartphone-list.component.html',
   styleUrl: './smartphone-list.component.css'
 })
 export class SmartphoneListComponent  implements OnInit{
   displayColumns:string[]=['serialNumber',
   'brand',
-  'model',
-  'storage'];
+  'storage',
+  'relesaeDate',
+  'price'];
   smartphones:Smartphone[]=[];
   error: string | null = null;
 

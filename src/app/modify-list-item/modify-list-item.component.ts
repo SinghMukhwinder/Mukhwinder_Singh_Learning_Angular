@@ -32,8 +32,9 @@ export class ModifyListItemComponent implements OnInit{
       id:[smartphoneService.generateNewId()],
       serialNumber: ['', Validators.required],
       brand: ['', [Validators.required, Validators.pattern(noSpcialChar)]],
-      model: ['', [Validators.required, Validators.pattern(noSpcialChar)]],
       storage:[''],
+      releaseDate: [''],
+      price: ['', Validators.required],
       isAvailable: [false],
       image: ['']
     });
