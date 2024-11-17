@@ -4,6 +4,7 @@ import {Smartphone} from "../Shared/Models/Smartphones";
 import {SmartphoneListItemComponent} from "../smartphone-list-item/smartphone-list-item.component";
 import {SmartphoneService} from "../Services/smartphone.service";
 import {Router, RouterLink} from "@angular/router";
+import {smartphones} from "../Shared/mockSmartphone";
 
 
 
@@ -45,7 +46,7 @@ export class SmartphoneListComponent  implements OnInit{
   }
 
   onDelete(id: number): void{
-    this.smartphoneService.deleteSmartphone(id).subscribe(() => this.ngOnInit());
+    this.smartphones = this.smartphones.filter(smartphones => smartphones.id !== id);
   }
 
 }
