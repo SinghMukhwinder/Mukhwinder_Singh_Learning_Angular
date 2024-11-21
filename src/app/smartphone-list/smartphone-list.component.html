@@ -23,8 +23,8 @@
     <td>{{phone.releaseDate | date: 'fullDate' }}</td>
     <td>{{phone.price | currency: 'CAD': "symbol-narrow" }}</td>
     <td>{{phone.isAvailable? 'YES' : 'NO'}}</td>
-    <td><button type="button" (click)= "onDelete(phone.id)">Delete</button></td>
-    <td><button type="button" (click)="editSmartphone(phone.id)">Edit</button></td>
+    <td><button type="button" (click)= "onDelete(phone.id)"  [appHoverHighlight]="'lightblue'">Delete</button></td>
+    <td><button type="button" (click)="editSmartphone(phone.id) "  [appHoverHighlight]="'lightblue'">Edit</button></td>
   </tr>
     </tbody>
   </table>
