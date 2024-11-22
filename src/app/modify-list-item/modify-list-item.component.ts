@@ -4,13 +4,17 @@ import {SmartphoneService} from "../Services/smartphone.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {Smartphone} from "../Shared/Models/Smartphones";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    HoverHighlightDirective,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
