@@ -88,7 +88,10 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css"
+
+
             ],
             "scripts": []
           }
