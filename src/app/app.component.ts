@@ -5,11 +5,12 @@ import {SmartphoneListComponent} from "./smartphone-list/smartphone-list.compone
 import {Smartphone} from "./Shared/Models/Smartphones";
 import {SmartphoneListItemComponent} from "./smartphone-list-item/smartphone-list-item.component";
 import {SmartphoneService} from "./Services/smartphone.service";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, SmartphoneListComponent, SmartphoneListItemComponent, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, NgForOf, JsonPipe, SmartphoneListComponent, SmartphoneListItemComponent, RouterLink, RouterLinkActive, MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -17,8 +18,8 @@ export class AppComponent {
   displayColums:string[]=['serialNumber',
     'brand',
     'storage',
-  'releaseDate',
-  'price'];
+    'releaseDate',
+    'price'];
   smartphones:Smartphone[]=[];
 
   constructor(private smartphoneService: SmartphoneService) {

@@ -2,19 +2,26 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {SmartphoneService} from "../Services/smartphone.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {NgIf} from "@angular/common";
 import {Smartphone} from "../Shared/Models/Smartphones";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf,
     HoverHighlightDirective,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatInputModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
@@ -44,13 +51,13 @@ export class ModifyListItemComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-     const id = Number(this.route.snapshot.paramMap.get('id'));
-     if(id){
-       this.smartphoneService.getSmartphoneById(id).subscribe( smartphones =>{
-           if (smartphones){
-             this.smartphoneForm.patchValue(smartphones);
-           }});
-     }
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if(id){
+      this.smartphoneService.getSmartphoneById(id).subscribe( smartphones =>{
+        if (smartphones){
+          this.smartphoneForm.patchValue(smartphones);
+        }});
+    }
   }
 
 
@@ -61,7 +68,7 @@ export class ModifyListItemComponent implements OnInit{
         this.smartphoneService.updateSmartphone(newSmartphone).subscribe(() => this.router.navigate(['/smartphones']));
       } else
         newSmartphone.id = this.smartphoneService.generateNewId();
-        this.smartphoneService.addSmartphone(newSmartphone).subscribe(() => this.router.navigate(['/smartphones']));
-      }
+      this.smartphoneService.addSmartphone(newSmartphone).subscribe(() => this.router.navigate(['/smartphones']));
     }
+  }
 }
