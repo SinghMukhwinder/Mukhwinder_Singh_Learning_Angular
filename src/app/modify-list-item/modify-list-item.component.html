@@ -4,52 +4,52 @@
 
     <mat-label>ID:</mat-label>
     <mat-form-field appearance="outline" class="form-field" disabled>
-      <input matInput type="number" id="id" formControlName="id"  matTooltip="Id" [appHighlightOnFocus]="'lightblue'"/>
+      <input type="number" id="id" formControlName="id"  matTooltip="Id" matInput [appHighlightOnFocus]="'lightblue'"/>
     </mat-form-field>
   </div>
 
   <div class="form-group">
     <mat-label>Serial Number:</mat-label>
     <mat-form-field appearance="outline" class="form-field" disabled>
-    <input matInput type="text" id="serialNumber" formControlName="serialNumber" [appHighlightOnFocus]="'lightyellow'"/>
+    <input matInput type="text" id="serialNumber" formControlName="serialNumber" matTooltip="serialNumber" [appHighlightOnFocus]="'lightyellow'"/>
     </mat-form-field>
   </div>
 
   <div class="form-group">
     <mat-label>Brand:</mat-label>
     <mat-form-field appearance="outline" class="form-field" disabled>
-    <input matInput type="text" id="brand" formControlName="brand" [appHighlightOnFocus]="'lightyellow'"/>
+    <input matInput type="text" id="brand" formControlName="brand" matTooltip="brand" [appHighlightOnFocus]="'lightyellow'"/>
     </mat-form-field>
   </div>
 
   <div class="form-group">
     <mat-label>Storage:</mat-label>
     <mat-form-field appearance="outline" class="form-field" disabled>
-    <input matInput type="number" id="storage" formControlName="storage" [appHighlightOnFocus]="'lightyellow'"/>
+    <input matInput type="number" id="storage" formControlName="storage"  matTooltip="storage" [appHighlightOnFocus]="'lightyellow'"/>
     </mat-form-field>
   </div>
 
   <div class="form-group">
     <mat-label>Release Date:</mat-label>
     <mat-form-field appearance="outline" class="form-field" disabled>
-    <input matInput type="date" id="releaseDate" formControlName="releaseDate" [appHighlightOnFocus]="'lightyellow'"/>
+    <input matInput type="date" id="releaseDate" formControlName="releaseDate" matTooltip="releaseDate" [appHighlightOnFocus]="'lightyellow'"/>
     </mat-form-field>
   </div>
 
   <div class="form-group">
     <mat-label>Price:</mat-label>
     <mat-form-field appearance="outline" class="form-field" disabled>
-    <input matInput type="number" id="price" formControlName="price" [appHighlightOnFocus]="'lightyellow'"/>
+    <input matInput type="number" id="price" formControlName="price" matTooltip="price" [appHighlightOnFocus]="'lightyellow'"/>
     </mat-form-field>
   </div>
 
   <div class="form-group">
-    <mat-checkbox formControlName="isAdmin" class="checkbox">Is Available</mat-checkbox>
+    <mat-checkbox formControlName="isAdmin" matTooltip="isAvaliable" class="checkbox">Is Available</mat-checkbox>
   </div>
 
   <div class="form-group">
     <mat-label>Image:</mat-label>
-    <input type="file" id="image" formControlName="Image"/>
+    <input type="file" id="image" matTooltip="image" formControlName="Image"/>
   </div>
 
   <button type="submit" [appHoverHighlight]="'lightblue'" mat-flat-button color="primary">Submit</button>
